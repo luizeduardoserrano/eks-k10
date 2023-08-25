@@ -20,6 +20,11 @@ git clone https://github.com/luizeduardoserrano/eks-k10.git
 ````
 cd eks-k10;./awsprep.sh;. ./setenv.sh
 ````
+4. Edit the file csi-enable.sh and change the AWS Account ID in this command (XXXXXXXXXXXX):
+eksctl create addon --name aws-ebs-csi-driver --cluster $my_eks_cluster --service-account-role-arn arn:aws:iam::XXXXXXXXXXXX:role/AmazonEKS_EBS_CSI_DriverRole --force
+````
+vi csi-enable.sh
+````
 
 #### Deploy based on your needs
 
