@@ -11,7 +11,7 @@ echo $MY_CLUSTER-$(date +%s)$RANDOM > k10_eks_clustername
 eksctl create cluster \
   --name $(cat k10_eks_clustername) \
   --version $MY_K8S_VERSION \
-  --nodegroup-name workers4yong1 \
+  --nodegroup-name workers \
   --nodes 1 \
   --nodes-min 1 \
   --nodes-max 3 \
