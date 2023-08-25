@@ -13,17 +13,12 @@ vi setenv.sh
 1. Go to AWS Cloud Shell
 2. Clone the github repo, run below command
 ````
-git clone https://github.com/yongkanghe/eks-k10.git
+git clone https://github.com/luizeduardoserrano/eks-k10.git
 ````
 3. Install the required tools (eksctl, kubectl, helm) and input AWS Access Credentials
 ````
 cd eks-k10;./awsprep.sh;. ./setenv.sh
 ````
-4. Optionally, you can customize the clustername, instance-type, zone, region, bucketname
-````
-vi setenv.sh
-````
-
 ## NOTE: 
 If you are using AWS provided access via Event Engine, please use ee-* scripts instead. 
 #### E.g. ee-eks-deploy.sh, ee-k10-deploy.sh, ee-deploy.sh
