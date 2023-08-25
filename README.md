@@ -8,9 +8,7 @@ The EKS cluster characteristics are defined in setenv.sh file (Set the environme
 
 vi setenv.sh 
 ````
-
-
-# Ste. 
+#### Preparation for deployment
 
 1. Go to AWS Cloud Shell
 2. Clone the github repo, run below command
