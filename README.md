@@ -4,7 +4,7 @@ It allows you to automatically build a ready-to-use Kasten K10 demo environment 
 
 I recommend creating the EKS cluster from scratch, using the script eks-deploy.sh or deploy.sh, to guarantee the perfect creation of the IAM and CSI rules necessary for Kasten to work.
 
-The EKS cluster characteristics are defined in setenv.sh file (Set the environment variables). The default settings deploy worker nodes of type t3a.large in the us-east-2 region. Optionally, you can customize the clustername, instance-type, zone, region, bucketname editing this file:
+The EKS cluster characteristics are defined in setenv.sh file (Set the environment variables). The default settings deploy worker nodes of type t3a.large in the us-east-1 region (US East N. Virginia). Optionally, you can customize the clustername, instance-type, zone, region, bucketname editing this file:
 
 vi setenv.sh 
 
