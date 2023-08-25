@@ -1,4 +1,4 @@
-This script is based on the Yongkang He job and customized with changes. @YongkangHe.
+This script is based on the job of Yongkang He and is customized with some changes. Follow him> @YongkangHe.
 
 It allows you to automatically build a ready-to-use Kasten K10 demo environment running on EKS in about 20 minutes with deploy.sh. For simplicity and cost optimization, the EKS cluster will have only one worker node and create a separate vpc and subnets. These are bash shell-based scripts that work on Cloud Shell. 
 
