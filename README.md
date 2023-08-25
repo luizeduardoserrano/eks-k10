@@ -6,7 +6,7 @@ I recommend creating the EKS cluster from scratch, using the script eks-deploy.s
 
 The EKS cluster characteristics are defined in setenv.sh file (Set the environment variables). The default settings deploy worker nodes of type t3a.large in the us-east-2 region. Optionally, you can customize the clustername, instance-type, zone, region, bucketname editing this file:
 
-vi setenv.sh
+vi setenv.sh 
 ````
 
 
