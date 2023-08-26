@@ -1,12 +1,10 @@
 This script is based on the job of Yongkang He and is customized with some changes. Follow him: @YongkangHe
 
-It allows you to automatically build a ready-to-use Kasten K10 demo environment running on EKS in about 20 minutes with deploy.sh. For simplicity and cost optimization, the EKS cluster will have only one worker node and create a separate vpc and subnets. These are bash shell-based scripts that work on Cloud Shell. 
+It allows you to automatically build a ready-to-use Kasten K10 demo environment running on EKS in about 20 minutes. For simplicity and cost optimization, the EKS cluster will have only one worker node and create a separate vpc and subnets. These are bash shell-based scripts that work on Cloud Shell. 
 
 I recommend creating the EKS cluster from scratch, using the script eks-deploy.sh or deploy.sh, to guarantee the perfect creation of the IAM and CSI rules necessary for Kasten to work.
 
-The EKS cluster characteristics are defined in setenv.sh file (Set the environment variables). The default settings deploy worker nodes of type t3a.large in the us-east-1 region (US East N. Virginia). Optionally, you can customize the clustername, instance-type, zone, region, bucketname editing this file:
-
-vi setenv.sh 
+The EKS cluster characteristics are defined in setenv.sh file (Set the environment variables). The default settings deploy worker nodes of type t3a.large in the us-east-1 region (US East N. Virginia). Optionally, you can customize the clustername, instance-type, zone, region, bucketname editing in this file.
 
 #### Preparation for deployment
 
