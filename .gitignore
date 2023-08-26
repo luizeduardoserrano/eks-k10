@@ -1,8 +1,0 @@
-eksctl
-helm
-kubectl
-*access*
-eks_*
-k10_*
-ebs*
-*migration_bucket*
