@@ -34,7 +34,7 @@ kubectl config set-context --current --namespace kasten-io
 echo '-------Deploying a Cassandra database'
 kubectl create ns cassandra
 helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install cassandra bitnami/cassandra -n yong-cassandra --set persistence.size=1Gi
+helm install cassandra bitnami/cassandra -n cassandra --set persistence.size=1Gi
 
 echo '-------Output the Cluster ID'
 clusterid=$(kubectl get namespace default -ojsonpath="{.metadata.uid}{'\n'}")
