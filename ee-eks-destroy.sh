@@ -1,7 +1,7 @@
 starttime=$(date +%s)
 . ./setenv.sh
 
-echo '-------Deleting the EKS Cluster (typically in ~ 10 mins)'
+echo '--------Deleting the EKS Cluster (typically in ~ 10 mins)'
 
 echo '-------Deleting AWS IAM role and policy'
 aws iam delete-role-policy --role-name k10-iam-role4yong1 --policy-name k10-iam-policy4yong1
