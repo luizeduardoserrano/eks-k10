@@ -41,13 +41,6 @@ clusterid=$(kubectl get namespace default -ojsonpath="{.metadata.uid}{'\n'}")
 echo "" | awk '{print $1}' > eks_token
 echo My Cluster ID is $clusterid >> eks_token
 
-# echo '-------Creating a S3 profile secret'
-# kubectl create secret generic k10-s3-secret \
-#       --namespace kasten-io \
-#       --type secrets.kanister.io/aws \
-#       --from-literal=aws_access_key_id=$AWS_ACCESS_KEY_ID \
-#       --from-literal=aws_secret_access_key=$AWS_SECRET_ACCESS_KEY
-
 echo '-------Wait for 1 or 2 mins for the Web UI IP and token'
 kubectl wait --for=condition=ready --timeout=180s -n kasten-io pod -l component=jobs
 k10ui=http://$(kubectl get svc gateway-ext | awk '{print $4}'|grep -v EXTERNAL)/k10/#
@@ -69,94 +62,6 @@ kubectl wait --for=condition=ready --timeout=300s -n kasten-io pod -l component=
 #Create a Cassandra backup policy
 ./cassandra-policy.sh
 
-# echo '-------Creating a S3 profile'
-# cat <<EOF | kubectl apply -f -
-# apiVersion: config.kio.kasten.io/v1alpha1
-# kind: Profile
-# metadata:
-#   name: $MY_OBJECT_STORAGE_PROFILE
-#   namespace: kasten-io
-# spec:
-#   type: Location
-#   locationSpec:
-#     credential:
-#       secretType: AwsAccessKey
-#       secret:
-#         apiVersion: v1
-#         kind: Secret
-#         name: k10-s3-secret
-#         namespace: kasten-io
-#     type: ObjectStore
-#     objectStore:
-#       name: $(cat k10_eks_bucketname)
-#       objectStoreType: S3
-#       region: $MY_REGION
-# EOF
-
-# echo '------Create backup policies'
-# cat <<EOF | kubectl apply -f -
-# apiVersion: config.kio.kasten.io/v1alpha1
-# kind: Policy
-# metadata:
-#   name: yong-cassandra-backup
-#   namespace: kasten-io
-# spec:
-#   comment: ""
-#   frequency: "@hourly"
-#   actions:
-#     - action: backup
-#       backupParameters:
-#         profile:
-#           namespace: kasten-io
-#           name: $MY_OBJECT_STORAGE_PROFILE
-#     - action: export
-#       exportParameters:
-#         frequency: "@hourly"
-#         migrationToken:
-#           name: ""
-#           namespace: ""
-#         profile:
-#           name: $MY_OBJECT_STORAGE_PROFILE
-#           namespace: kasten-io
-#         receiveString: ""
-#         exportData:
-#           enabled: true
-#       retention:
-#         hourly: 0
-#         daily: 0
-#         weekly: 0
-#         monthly: 0
-#         yearly: 0
-#   retention:
-#     hourly: 4
-#     daily: 1
-#     weekly: 1
-#     monthly: 0
-#     yearly: 0
-#   selector:
-#     matchExpressions:
-#       - key: k10.kasten.io/appNamespace
-#         operator: In
-#         values:
-#           - yong-cassandra
-# EOF
-
-# sleep 3
-
-# echo '-------Kickoff the on-demand backup job'
-# sleep 2
-# cat <<EOF | kubectl create -f -
-# apiVersion: actions.kio.kasten.io/v1alpha1
-# kind: RunAction
-# metadata:
-#   generateName: run-backup-
-# spec:
-#   subject:
-#     kind: Policy
-#     name: yong-cassandra-backup
-#     namespace: kasten-io
-# EOF
-
 echo '-------Accessing K10 UI'
 cat eks_token
 
@@ -164,6 +69,5 @@ endtime=$(date +%s)
 duration=$(( $endtime - $starttime ))
 echo "-------Total time for K10 deployment is $(($duration / 60)) minutes $(($duration % 60)) seconds."
 echo "" | awk '{print $1}'
-echo "-------Created by Yongkang"
-echo "-------Email me if any suggestions or issues he@yongkang.cloud"
+echo "-------Created"
 echo "" | awk '{print $1}'
