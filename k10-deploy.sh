@@ -69,5 +69,5 @@ endtime=$(date +%s)
 duration=$(( $endtime - $starttime ))
 echo "-------Total time for K10 deployment is $(($duration / 60)) minutes $(($duration % 60)) seconds."
 echo "" | awk '{print $1}'
-echo "-------Created"
+echo "-------Removed
 echo "" | awk '{print $1}'
