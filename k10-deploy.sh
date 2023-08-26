@@ -32,7 +32,7 @@ echo '-------Set the default ns to k10'
 kubectl config set-context --current --namespace kasten-io
 
 echo '-------Deploying a Cassandra database'
-kubectl create ns yong-cassandra
+kubectl create ns cassandra
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install cassandra bitnami/cassandra -n yong-cassandra --set persistence.size=1Gi
 
