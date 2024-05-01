@@ -13,10 +13,10 @@ fi
 
 if [ ! -f ~/eks-k10/helm ]; then
   echo "Install helm"
-  wget https://get.helm.sh/helm-v3.7.0-linux-amd64.tar.gz
-  tar -zxvf helm-v3.7.0-linux-amd64.tar.gz
+  wget https://get.helm.sh/helm-v3.14.0-linux-amd64.tar.gz
+  tar -zxvf helm-v3.14.0-linux-amd64.tar.gz
   mv linux-amd64/helm .
-  rm helm-v3.7.0-linux-amd64.tar.gz
+  rm helm-v3.14.0-linux-amd64.tar.gz
   rm -rf linux-amd64
 fi
 
