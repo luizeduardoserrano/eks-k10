@@ -8,8 +8,8 @@ echo '-------Creating a S3 profile secret'
 kubectl create secret generic k10-s3-secret \
       --namespace kasten-io \
       --type secrets.kanister.io/aws \
-      --from-literal=aws_access_key_id=$(cat awsaccess | head -1) \
-      --from-literal=aws_secret_access_key=$(cat awsaccess | tail -1)
+      --from-literal=aws_access_key_id=AKIAIOSFODNN7EXAMPLE \
+      --from-literal=aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
 echo '-------Creating a S3 profile'
 cat <<EOF | kubectl apply -f -
